@@ -46,6 +46,15 @@ public class UserServiceImpl implements UserService {
                 .findFirst();
     }
 
+    @Override
+    public List<User> getUsersByBank(Bank bank) {
+        return users.stream()
+                .filter(user ->
+                        user.getBanks()
+                                .stream()
+                                .anyMatch((Bank userBank) -> userBank.getId() == bank.getId())).toList();
+    }
+
 
     public List<User> getAllUsers() {
         return new ArrayList<>(users);
@@ -99,7 +108,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void deleteBank(Bank bank) {
-        for(User curUser: users) {
+        for (User curUser : users) {
             List<Bank> banks = curUser.getBanks();
             banks.remove(bank);
             curUser.setBanks(banks);

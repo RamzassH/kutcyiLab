@@ -15,6 +15,8 @@ public interface UserService {
 
     Optional<User> getUserById(int id);
 
+    List<User> getUsersByBank(Bank bank);
+
     List<User> getAllUsers();
 
     void updateUser(int id, String name);

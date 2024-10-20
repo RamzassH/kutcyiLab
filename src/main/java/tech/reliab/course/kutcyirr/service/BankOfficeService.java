@@ -14,6 +14,8 @@ public interface BankOfficeService {
 
     Optional<BankOffice> getBankOfficeById(int id);
 
+    List<BankOffice> getAllBankOfficesByBank(Bank bank);
+
     List<BankOffice> getAllBankOffices();
 
     void updateBankOffice(int id, String name);

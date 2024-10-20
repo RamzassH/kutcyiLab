@@ -17,6 +17,8 @@ public interface EmployeeService {
 
     List<Employee> getAllEmployees();
 
+    List<Employee> getAllEmployeesByBank(Bank bank);
+
     void updateEmployee(int id, String name);
 
     void deleteEmployee(int id);
