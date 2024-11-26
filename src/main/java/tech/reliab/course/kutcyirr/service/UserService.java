@@ -1,39 +1,21 @@
 package tech.reliab.course.kutcyirr.service;
 
-import tech.reliab.course.kutcyirr.entity.Bank;
-import tech.reliab.course.kutcyirr.entity.CreditAccount;
-import tech.reliab.course.kutcyirr.entity.PaymentAccount;
 import tech.reliab.course.kutcyirr.entity.User;
+import tech.reliab.course.kutcyirr.model.UserRequest;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 
-    User createUser(String fullName, LocalDate birthDate, String job);
+    User createUser(UserRequest userRequest);
 
-    Optional<User> getUserById(int id);
+    User getUserById(int id);
 
-    List<User> getUsersByBank(Bank bank);
+    User getUserDtoById(int id);
 
     List<User> getAllUsers();
 
-    void updateUser(int id, String name);
+    User updateUser(int id, String name);
 
     void deleteUser(int id);
-
-    User getUserIfExists(int id);
-
-    void addCreditAccount(CreditAccount creditAccount, User user);
-
-    void addPaymentAccount(PaymentAccount paymentAccount, User user);
-
-    void addBank(Bank bank, User user);
-
-    void deleteCreditAccount(CreditAccount creditAccount, User user);
-
-    void deletePaymentAccount(PaymentAccount paymentAccount, User user);
-
-    void deleteBank(Bank bank);
 }
